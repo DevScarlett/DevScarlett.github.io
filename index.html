@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light">
+<title>Meu Cantinho | Assistir e Ler</title>
+<link rel="stylesheet" href="visual.css"><link rel="stylesheet" href="responsivo.css"></head>
+<body><main class="shell">
+<header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">✦</span> meu cantinho</div><div class="top-actions"><button class="btn" id="exportBtn" title="Baixar uma cópia dos dados">Exportar</button><button class="btn" id="importBtn" title="Restaurar dados de um arquivo">Importar</button><input type="file" id="importFile" accept=".json,application/json" class="hidden"></div></header>
+
+<nav class="tabs" aria-label="Áreas"><button class="tab active" data-area="sozinho">Assistir sozinho</button><button class="tab" data-area="sarah">Com Sarah</button><button class="tab" data-area="doramas">Doramas</button><button class="tab" data-area="leituras">Leituras</button></nav>
+<div id="storageWarning" class="notice hidden">Não foi possível salvar neste navegador. Suas alterações podem ser perdidas; exporte uma cópia.</div>
+<section><div class="section-head"><div><h2 id="sectionTitle"></h2></div><button class="btn primary" id="addBtn">＋ Adicionar</button></div>
+<div class="controls"><div class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><label class="visually-hidden" for="search">Pesquisar</label><input id="search" placeholder="Pesquisar por título"></div><div><label class="visually-hidden" for="statusFilter">Filtrar por status</label><select id="statusFilter"><option value="">Todos os status</option></select></div></div><div id="lists" class="lists" aria-live="polite"></div></section>
+<footer class="footer">Feito para suas próximas boas histórias. ✦</footer></main>
+<dialog id="editor" class="modal"><form id="itemForm" class="modal-inner"><div class="modal-head"><h2 id="formTitle">Adicionar item</h2><button type="button" id="closeModal" class="icon-btn modal-close" aria-label="Fechar">×</button></div><div class="form-grid"><div class="full"><label for="title">Título *</label><input id="title" required maxlength="200" autocomplete="off" placeholder="Nome do título"></div><div><label for="area">Área *</label><select id="area" required><option value="sozinho">Assistir sozinho</option><option value="sarah">Assistir com Sarah</option><option value="doramas">Doramas</option><option value="leituras">Leituras</option></select></div><div><label for="status">Status *</label><select id="status" required></select></div><div id="ratingGroup" class="hidden"><label for="rating">Nota de 0 a 5 *</label><select id="rating"><option value="">Selecione</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div><div><label for="genre">Gênero (opcional)</label><input id="genre" maxlength="100" placeholder="Ex.: comédia"></div><div><label for="platform">Plataforma (opcional)</label><input id="platform" maxlength="100" placeholder="Onde encontrar"></div><div class="full"><label for="synopsis">Sinopse ou observações (opcional)</label><textarea id="synopsis" maxlength="3000" placeholder="Adicione quando quiser"></textarea></div></div><p class="hint">* Campos obrigatórios. Os outros ficam para depois.</p><div class="form-actions"><button type="button" id="cancelBtn" class="btn">Cancelar</button><button type="submit" class="btn primary">Salvar item</button></div></form></dialog>
+<script src="parte1.js"></script>
+<script src="parte2.js"></script>
+<script src="parte3.js"></script>
+<script src="parte4.js"></script>
+<script src="parte5.js"></script></body></html>
