@@ -1,0 +1,10 @@
+seed('sozinho','Quero ver',['O Astronauta','Ovelhas Detetive','Devoradores de Estrela']);
+seed('sarah','Vendo',['Ouran Highschool Host Club','Apenas um Show','Boku no Hero','Food Wars','Demon Slayer','Bleach','Duna: Parte Dois (2024)']);
+seed('sarah','Quero ver',['Gravity Falls','Hamtaro']);
+seed('doramas','Vendo',['Um choque de amor']);
+[['Romance is a bonus book',5],['Pretendente surpresa',4],['Intensivão do amor',3],['Primeira vez amor',5],['Sorriso Real',4],['Hometown Cha Cha Cha',4],['Tudo Bem Não Ser Normal',5],['Tomorrow',3],['Desgraça ao seu dispor',2],['Apesar de tudo, amor',1],['Nosso destino',4],['Alquimia das Almas',3],['Love to hate you',5],['De Volta às Raízes',3],['Sr. Rainha',3],['Vincenzo',5],['Na direção do amor',4],['O Amor Mora ao lado',4],['Good Morning Call',5],['Typhoon Family',5],['Amor e Batatas',4],['A vida Secreta da minha Secretária',4],['Beleza Verdadeira',5],['Kimi ni todoke',5],['Loucos um pelo outro',5],['O amor não está esgotado',5],['Gostinho de amor',5],['Um advogado por um dólar',4],['Românticos Anônimos',3],['Apreendendo a Lição',4]].forEach(([title,rating])=>initial.push({id:uid(),area:'doramas',status:'Vistos',title,type:'',genre:'',platform:'',synopsis:'',rating}));
+seed('leituras','Lendo',['Mangás online no tablet','Akira 1','As Crônicas de Spiderwick']);
+seed('leituras','Quero ler',['Harry Potter','Eu Sou a Lenda','Akira 2','Your Lie in April 2']);
+const $=id=>document.getElementById(id); let items, active='sozinho', editing=null;
+function validItem(x){return x&&typeof x.id==='string'&&typeof x.title==='string'&&x.title.trim()&&Object.hasOwn(config,x.area)&&config[x.area].statuses.includes(x.status)&&(x.type==null||typeof x.type==='string')&&['genre','platform','synopsis'].every(k=>x[k]==null||typeof x[k]==='string')&&(x.area!=='doramas'||x.status!=='Vistos'||(Number.isInteger(x.rating)&&x.rating>=0&&x.rating<=5));}
+function migrateV1(data){return data.filter(x=>!(x.area==='sozinho'&&(x.title==='Duna (2021)'||x.title==='Duna (1984)'))).map(x=>x.area==='sozinho'&&x.title==='Duna: Parte Dois (2024)'?{...x,area:'sarah',status:'Vendo'}:x);}
